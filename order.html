@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>El Gato Café</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">  
+        <div class="container-fluid">
+          <a class="navbar-brand" href="home.html" style="font-size: 2rem;">El Gato Café</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="home.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="menu.html">Menu</a></li>
+              <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="about.html">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="contact.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link active" style="color:#0a0b0c; font-weight: bold;"href="#">Order</a></li>
+            </ul>
+      
+            <div class="d-flex align-items-center me-3">
+              <a href="#" class="text-dark">
+                <i class="fa fa-shopping-cart fa-lg"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="hero">
+                <img src="assets/cat.jpg" alt="Coffee with cat latte art">
+                <div class="hero-text">
+                    <h2>SIGNATURE<br>COLD BREWS</h2>
+                </div>
+            </div>
+
+            <div class="order-options">
+                <button class="order-button active">Delivery</button>
+                <button class="order-button">Pickup</button>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Search..." id="searchInput">
+            </div>
+
+            <div class="product-grid" id="productGrid">
+               
+            </div>
+        </div>
+
+        <div class="sidebar-cart">
+            <div class="cart-header">
+                <div>
+                    <div class="cart-title" id="cartItemName">Cart</div>
+                    <div class="cart-subtitle">Cart</div>
+                </div>
+                <div class="cart-edit">
+                    <span class="cart-edit-text">Edit</span>
+                    <span class="cart-edit-icon">🗑️</span>
+                </div>
+            </div>
+
+            <div class="cart-items" id="cartItems">
+                
+            </div>
+
+            <div class="promo-code">
+                <div class="promo-icon">🎟️</div>
+                <input type="text" placeholder="Enter code >" class="promo-input">
+            </div>
+
+            <div class="cart-total-section">
+                <div class="cart-total-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₱150</span>
+                </div>
+                <div class="cart-total-row">
+                    <span>Delivery Fee</span>
+                    <span>₱40</span>
+                </div>
+                <div class="cart-total-row total-row">
+                    <span>Total</span>
+                    <span id="total" class="total-price">₱190</span>
+                </div>
+            </div>
+
+            <button class="checkout-button">Checkout</button>
+        </div>
+    </div>
+    <div id="cartItems"></div>
+
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Find Us</h3>
+                        <p style="font-size: smaller;"><i class="fa fa-location-arrow"></i> 938 Aurora Blvd, Cubao,<br>
+                                                                    Quezon City, 1109 Metro Manila</p>
+                        <p style="font-size: smaller;"><i class="fa fa-phone"></i>  +91-9999878398  </p>
+                        <p style="font-size: smaller;"><i class="fa fa-envelope"></i> elgatocafe@gmail.com  </p>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="menu.html">Menu</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#">Order</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3 style="font-family: Inria Serif, serif" ><b>El Gato Café</b></h3>
+                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus.
+                           Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                        <p class="copyright">El Gato Café © 2025</p>
+                    </div>
+                    <div class="col item social">
+                      <a href="https://www.facebook.com/" target="_blank" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                      <a href="https://x.com/?lang=en" target="_blank" class="text-white me-3"><i class="bi bi-twitter-x"></i></a>
+                      <a href="https://instagram.com" target="_blank" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                      <a href="https://linkedin.com" target="_blank" class="text-white"><i class="bi bi-linkedin"></i></a> 
+                    </div>
+                </div>
+            </div>
+        </footer>
+      </div>
+
+    <script src="javaorder.js"></script>
+</body>
+</html>
