@@ -1,0 +1,486 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  .card {
+    background-color: #c7b1a2;
+    border: none;
+    border-radius: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card img {
+    object-fit: cover;
+  }
+  
+  .story-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #C7A391;
+  }
+  
+  .review-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .review-card {
+    background-color: #c7b1a2;
+    border: none;
+    border-radius: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .review-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .stars {
+    font-size: 1.5rem;
+  }
+  
+  .left-aligned-text,
+  .right-aligned-image {
+    flex: 1;
+  }
+  
+  .social-icons a {
+    color: #333;
+    font-size: 1.3rem;
+    transition: color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: black;
+  }
+  
+ 
+.footer-dark {
+  padding:40px 0;
+  color:#f0f9ff;
+  background-color:#4b3a2f;
+  padding: 0 0 0 0; 
+}
+
+.footer-dark h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-dark ul {
+  padding:0;
+  list-style:none;
+  line-height:1.8;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-dark ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.6;
+}
+
+.footer-dark ul a:hover {
+  opacity:0.8;
+}
+
+@media (max-width:767px) {
+.footer-dark .item:not(.social) {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+.footer-dark .item p {
+  line-height: 1.9;       
+  margin-bottom: 8px;       
+  color: #ffffff;         
+}
+
+.footer-dark .item.text {
+  margin-bottom:36px;
+}
+
+@media (max-width:767px) {
+.footer-dark .item.text {
+    margin-bottom:0;
+  }
+}
+
+.footer-dark .item.text p {
+  opacity:0.6;
+  margin-bottom:0;
+}
+
+.footer-dark .item.social {
+  text-align:center;
+}
+
+@media (max-width:991px) {
+.footer-dark .item.social {
+    text-align:center;
+    margin-top:20px;
+  }
+}
+
+.footer-dark .item.social > a {
+  font-size:20px;
+  width:36px;
+  height:36px;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+  margin:0 8px;
+  color:#fff;
+  opacity:0.75;
+}
+
+.footer-dark .item.social > a:hover {
+  opacity:0.9;
+}
+
+.footer-dark .copyright {
+  text-align:center;
+  padding-top:24px;
+  opacity:0.3;
+  font-size:13px;
+  margin-bottom:0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+  
+  .hero-image-container {
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .hero-img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  
+  .our-company {
+    padding: 4rem 2rem;
+    background-color: #fff;
+  }
+  
+  .company-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Ensures vertical alignment */
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .company-text {
+    flex: 1 1 55%;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+  }
+  
+  .company-text h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .company-text p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .company-image {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: flex-start; /* Aligns image to the right */
+    align-items: center; /* Centers the image vertically */
+  }
+  
+  .company-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover; /* Ensures the image covers the space properly */
+  }
+  
+  
+ /* Vision and Mission Section */
+.vision-mission .card {
+    background-color: #c7b1a2;
+    border: none;
+    border-radius: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 1.5rem; /* Larger padding for larger cards */
+    height: 100%; /* Allow content to fit inside the larger card */
+  }
+  
+  .vision-mission .card-body {
+    text-align: center;
+  }
+  
+  .vision-mission .card-title {
+    font-size: 3rem; /* Larger font size for title */
+    margin-bottom: 2rem; /* More spacing between title and text */
+  }
+  
+  .vision-mission .card-text {
+    font-size: 1.5rem; /* Larger font size for text */
+    line-height: 1.5; /* Increased line height for readability */
+    
+    text-align: justify;
+    color: #333;
+  }
+  
+  /* Card hover effect */
+  .vision-mission .card:hover {
+    transform: translateY(-8px); /* Increased hover movement */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* More intense shadow */
+  }
+  
+  /* Adjust layout for responsiveness */
+  @media (max-width: 767px) {
+    .vision-mission .card {
+      padding: 2.5rem; /* Slightly reduced padding for mobile */
+    }
+  
+    .vision-mission .card-title {
+      font-size: 2.5rem; /* Slightly smaller title for mobile */
+    }
+  
+    .vision-mission .card-text {
+      font-size: 1.3rem; /* Slightly smaller text on mobile */
+    }
+  }
+  
+  /* Adjust container spacing */
+  .vision-mission .container {
+    padding: 4rem 2rem; /* Increased padding for a more spacious layout */
+  }
+  
+  .vision-mission .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem; /* Larger gap between cards */
+  }
+  
+  .vision-mission .col-lg-6 {
+    flex: 1 1 48%; /* Ensures the cards are next to each other with a small gap */
+  }
+  
+  .navbar-brand {
+    font-family: "Inria Serif", serif;
+    font-weight: 550;
+    font-style: normal;
+    color: #0a0b0c;
+  }
+  
+  .navbar-nav {
+    font-family: "Gelasio", serif;
+    font-weight: 400;
+    font-size: medium;
+    font-style: normal;
+    color: #0a0b0c;
+  }
+  
+  .navbar-nav .nav-link {
+    position: relative;
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 3px;
+    background-color: #d2691e;
+    transition: width 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link.active::after {
+    width: 100%;
+  }
+  
+  /* Stories and News Section */
+.stories-news .card {
+    background-color: #C7A391; /* Match the color from other sections */
+    border: none;
+    border-radius: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+  }
+  
+  .stories-news .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: #D9C1A5; /* Lighter color on hover */
+  }
+  
+  .stories-news .card img {
+    object-fit: cover;
+    width: 100%;
+    height: 200px; /* Set a fixed height for the image */
+    border-radius: 20px 20px 0 0; /* Rounded top corners */
+  }
+  
+  .stories-news .card-body {
+    padding: 2rem;
+    text-align: justify;
+    background-color: #c7b1a2; /* White background for card body */
+  }
+  
+  .stories-news .card-title {
+    font-size: 1.5rem;
+    color: #2f2f2f; /* Dark color for title */
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .stories-news .card-text {
+    font-size: 1.1rem;
+    color: #5a5a5a; /* Light gray for text */
+    text-align: justify; /* Ensures the paragraph text is justified */
+  }
+  
+  .stories-news .btn {
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    color: #000;
+    border: 2px solid #000;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .stories-news .btn:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  /* Optional: Ensure the button in the stories and news section has a color that matches the other buttons */
+  .stories-news .card-body .btn {
+    border-color: black; /* Set button border color */
+    color: white; /* Set button text color */
+  }
+  
+  .stories-news .card-body .btn:hover {
+    background-color: black;
+    color: #fff;
+  }
+  
+
+ .reviews-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.reviews-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  position: relative;
+}
+
+.carousel-arrow {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-arrow:hover {
+  background-color: #f5f5f5;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.review-cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.review-card {
+  display: none;
+  align-items: center;
+  background-color: #cbb2a0;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  gap: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.review-card.active {
+  display: flex;
+}
+
+.review-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+.review-content {
+  text-align: left;
+}
+
+.review-content p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.review-content span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
