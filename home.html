@@ -1,31 +1,74 @@
   <!DOCTYPE html>
   <html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
+    
+  <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>El Gato Café</title>
-    <link rel="stylesheet" href="navbar.css" />
 
     <!-- Internal CSS -->
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+
+      /* Basic styling for body and elements */
+      body {
+        font-family: 'Gelasio';
+        background-color: #c0c0c0;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+.navbar-brand{
+    font-family: "Gelasio";
+    font-weight: 550;
+    font-style: normal;
+    color:#0a0b0c;
+}
+
+.navbar-nav{
+    font-family: "Gelasio";
+    font-weight: 400;
+    font-size: medium;
+    font-style: normal;
+    color:#0a0b0c;
+}
+
+
+
+      .navbar-nav .nav-link {
+        position: relative;
+        font-weight: bold;
+      }
+
+      .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        left: 0;
+        bottom: 3px;
+        background-color: #d2691e;
+        transition: width 0.3s ease;
+      }
+
+      .navbar-nav .nav-link.active::after {
+        width: 100%;
+      }
+
       .hero-image img {
         width: 100%;
         height: auto;
         display: block;
       }
 
-      /* Carousel styling */
       .carousel-container {
-        max-width: 100%;
-        margin: 0 auto;
-        background: #2a2a2a;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        position: relative;
-        padding: 1rem;
-      }
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
 
       .carousel-slide {
         display: none;
@@ -41,61 +84,57 @@
         display: block;
       }
 
-  .footer-dark {
-    padding: 40px 0;
-    color: #f0f9ff;
-    background-color: #4b3a2f;
-}
+      /* Footer Styling */
+      .footer-dark {
+        padding: 40px 0;
+        color: #f0f9ff;
+        background-color: #4b3a2f;
+      }
 
-.footer-dark h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-weight: bold;
-    font-size: 16px;
-}
+      .footer-dark h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-family: 'Gelasio', serif;
+        font-weight: bold;
+        font-size: 16px;
+      }
 
-.footer-dark ul {
-    padding: 0;
-    list-style: none;
-    line-height: 1.8;
-    font-size: 14px;
-    margin-bottom: 0;
-}
+      .footer-dark ul {
+        padding: 0;
+        list-style: none;
+        line-height: 1.8;
+        font-size: 14px;
+        margin-bottom: 0;
+        font-family: 'Gelasio', serif;
+      }
 
-.footer-dark ul a {
-    color: inherit;
-    text-decoration: none;
-    opacity: 0.6;
-}
+      .footer-dark ul a {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.6;
+      }
 
-.footer-dark ul a:hover {
-    opacity: 0.8;
-}
+      .footer-dark ul a:hover {
+        opacity: 0.8;
+      }
 
-/* Footer Text and Social Icons */
-.footer-dark .item p {
-    line-height: 1.9;
-    margin-bottom: 8px;
-    color: #ffffff;
-}
+      .footer-dark .item.text {
+        margin-bottom: 36px;
+      }
 
-.footer-dark .item.text {
-    margin-bottom: 36px;
-}
+      .footer-dark .item.social {
+        text-align: center;
+      }
 
-.footer-dark .item.social {
-    text-align: center;
-}
+      .footer-dark .item.social > a {
+        font-size: 20px;
+        padding: 0 12px;
+        color: #ffffff;
+      }
 
-.footer-dark .item.social > a {
-    font-size: 20px;
-    padding: 0 12px;
-    color: #ffffff;
-}
-
-.footer-dark .item.social > a:hover {
-    color: #ffcc00;
-}
+      .footer-dark .item.social > a:hover {
+        color: #ffcc00;
+      }
 
       /* Fade-in Animation */
       .fade-in {
@@ -165,53 +204,51 @@
         <h5>— Angela L.</h5>
       </div>
 
-      <div class="controls">
-        <button onclick="prevSlide()">&#8592;</button>
-        <button onclick="nextSlide()">&#8594;</button>
-      </div>
+      
     </section>
 
     <section class="hero-image">
       <img src="assets/home-pic4.png" alt="Cafe Vibe 2" class="img-fluid w-100 fade-in" />
     </section>
 
-<div class="footer-dark">
-  <footer>
-      <div class="container">
+    <!-- Footer -->
+    <div class="footer-dark">
+      <footer>
+        <div class="container">
           <div class="row">
-              <div class="col-sm-6 col-md-3 item">
-                  <h3>Find Us</h3>
-                  <p style="font-size: smaller;"><i class="fa fa-location-arrow"></i> 938 Aurora Blvd, Cubao,<br>
-                                                              Quezon City, 1109 Metro Manila</p>
-                  <p style="font-size: smaller;"><i class="fa fa-phone"></i>  +91-9999878398  </p>
-                  <p style="font-size: smaller;"><i class="fa fa-envelope"></i> elgatocafe@gmail.com  </p>
-              </div>
-              <div class="col-sm-6 col-md-3 item">
-                  <h3>Quick Links</h3>
-                  <ul>
-                      <li><a href="home.html">Home</a></li>
-                      <li><a href="menu.html">Menu</a></li>
-                      <li><a href="about.html">About Us</a></li>
-                      <li><a href="contact.html">Contact</a></li>
-                      <li><a href="#">Order</a></li>
-                  </ul>
-              </div>
-              <div class="col-md-6 item text">
-                  <h3 style="font-family: Inria Serif, serif" ><b>El Gato Café</b></h3>
-                  <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus.
-                     Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
-              </div>
-              <div class="col item social">
-                <a href="https://www.facebook.com/" target="_blank" class="text-white me-3"><i class="bi bi-facebook"></i></a>
-                <a href="https://x.com/?lang=en" target="_blank" class="text-white me-3"><i class="bi bi-twitter-x"></i></a>
-                <a href="https://instagram.com" target="_blank" class="text-white me-3"><i class="bi bi-instagram"></i></a>
-                <a href="https://linkedin.com" target="_blank" class="text-white"><i class="bi bi-linkedin"></i></a> 
-              </div>
+            <div class="col-sm-6 col-md-3 item">
+              <h3>Find Us</h3>
+              <p style="font-size: smaller;"><i class="fa fa-location-arrow"></i> 938 Aurora Blvd, Cubao,<br>
+                Quezon City, 1109 Metro Manila</p>
+              <p style="font-size: smaller;"><i class="fa fa-phone"></i> +91-9999878398</p>
+              <p style="font-size: smaller;"><i class="fa fa-envelope"></i> elgatocafe@gmail.com</p>
+            </div>
+            <div class="col-sm-6 col-md-3 item">
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Order</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6 item text">
+              <h3 style="font-family: 'Gelasio', serif;"><b>El Gato Café</b></h3>
+              <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus
+                elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+              <p class="copyright">El Gato Café © 2025</p>
+            </div>
+            <div class="col item social">
+              <a href="https://www.facebook.com/" target="_blank" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+              <a href="https://x.com/?lang=en" target="_blank" class="text-white me-3"><i class="bi bi-twitter-x"></i></a>
+              <a href="https://instagram.com" target="_blank" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+              <a href="https://linkedin.com" target="_blank" class="text-white"><i class="bi bi-linkedin"></i></a>
+            </div>
           </div>
-          <p class="copyright">El Gato Café © 2025</p>
-      </div>
-  </footer>
-</div>
+        </div>
+      </footer>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
@@ -247,16 +284,9 @@
         });
       }
 
-      function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-      }
-
-      function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-      }
+      setInterval(() => {
+  nextSlide();
+}, 5000); // change every 5 seconds
     </script>
   </body>
-
   </html>
