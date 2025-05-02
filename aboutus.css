@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 body {
-    font-family: 'Gelasio', serif;
-    background-color: #c0c0c0;
-    color: #333;
-}
-  
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+  }
+
   .card {
     background-color: #c7b1a2;
     border: none;
@@ -65,109 +65,61 @@ body {
   }
   
  
-.footer-dark {
-  padding:40px 0;
-  color:#f0f9ff;
-  background-color:#4b3a2f;
-  padding: 0 0 0 0; 
+  .footer-dark {
+    padding: 40px 0;
+    color: #f0f9ff;
+    background-color: #4b3a2f;
 }
 
 .footer-dark h3 {
-  margin-top:0;
-  margin-bottom:12px;
-  font-weight:bold;
-  font-size:16px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .footer-dark ul {
-  padding:0;
-  list-style:none;
-  line-height:1.8;
-  font-size:14px;
-  margin-bottom:0;
+    padding: 0;
+    list-style: none;
+    line-height: 1.8;
+    font-size: 14px;
+    margin-bottom: 0;
 }
 
 .footer-dark ul a {
-  color:inherit;
-  text-decoration:none;
-  opacity:0.6;
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.6;
 }
 
 .footer-dark ul a:hover {
-  opacity:0.8;
+    opacity: 0.8;
 }
 
-@media (max-width:767px) {
-.footer-dark .item:not(.social) {
-    text-align:center;
-    padding-bottom:20px;
-  }
-}
-
+/* Footer Text and Social Icons */
 .footer-dark .item p {
-  line-height: 1.9;       
-  margin-bottom: 8px;       
-  color: #ffffff;         
+    line-height: 1.9;
+    margin-bottom: 8px;
+    color: #ffffff;
 }
 
 .footer-dark .item.text {
-  margin-bottom:36px;
-}
-
-@media (max-width:767px) {
-.footer-dark .item.text {
-    margin-bottom:0;
-  }
-}
-
-.footer-dark .item.text p {
-  opacity:0.6;
-  margin-bottom:0;
+    margin-bottom: 36px;
 }
 
 .footer-dark .item.social {
-  text-align:center;
-}
-
-@media (max-width:991px) {
-.footer-dark .item.social {
-    text-align:center;
-    margin-top:20px;
-  }
+    text-align: center;
 }
 
 .footer-dark .item.social > a {
-  font-size:20px;
-  width:36px;
-  height:36px;
-  line-height:36px;
-  display:inline-block;
-  text-align:center;
-  border-radius:50%;
-  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
-  margin:0 8px;
-  color:#fff;
-  opacity:0.75;
+    font-size: 20px;
+    padding: 0 12px;
+    color: #ffffff;
 }
 
 .footer-dark .item.social > a:hover {
-  opacity:0.9;
+    color: #ffcc00;
 }
-
-.footer-dark .copyright {
-  text-align:center;
-  padding-top:24px;
-  opacity:0.3;
-  font-size:13px;
-  margin-bottom:0;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
   
   .hero-image-container {
     width: 100%;
@@ -226,16 +178,18 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 1rem;
-    object-fit: cover;
+    object-fit: cover; /* Ensures the image covers the space properly */
   }
-
+  
+  
+ /* Vision and Mission Section */
 .vision-mission .card {
     background-color: #c7b1a2;
     border: none;
     border-radius: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
-    padding: 1.5rem; 
-    height: 100%; 
+    padding: 1.5rem; /* Larger padding for larger cards */
+    height: 100%; /* Allow content to fit inside the larger card */
   }
   
   .vision-mission .card-body {
@@ -244,23 +198,24 @@ body {
   
   .vision-mission .card-title {
     font-size: 3rem; /* Larger font size for title */
-    margin-bottom: 2rem; 
+    margin-bottom: 2rem; /* More spacing between title and text */
   }
   
   .vision-mission .card-text {
-    font-size: 1.5rem; 
-    line-height: 1.5; 
+    font-size: 1.5rem; /* Larger font size for text */
+    line-height: 1.5; /* Increased line height for readability */
     
     text-align: justify;
     color: #333;
   }
-
+  
+  /* Card hover effect */
   .vision-mission .card:hover {
-    transform: translateY(-8px); 
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px); /* Increased hover movement */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* More intense shadow */
   }
   
-
+  /* Adjust layout for responsiveness */
   @media (max-width: 767px) {
     .vision-mission .card {
       padding: 2.5rem; /* Slightly reduced padding for mobile */
@@ -289,41 +244,8 @@ body {
   .vision-mission .col-lg-6 {
     flex: 1 1 48%; /* Ensures the cards are next to each other with a small gap */
   }
-  
-  .navbar-brand {
-    font-family: "Inria Serif", serif;
-    font-weight: 550;
-    font-style: normal;
-    color: #0a0b0c;
-  }
-  
-  .navbar-nav {
-    font-family: "Gelasio", serif;
-    font-weight: 400;
-    font-size: medium;
-    font-style: normal;
-    color: #0a0b0c;
-  }
-  
-  .navbar-nav .nav-link {
-    position: relative;
-    font-weight: bold;
-  }
-  
-  .navbar-nav .nav-link::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 3px;
-    left: 0;
-    bottom: 3px;
-    background-color: #d2691e;
-    transition: width 0.3s ease;
-  }
-  
-  .navbar-nav .nav-link.active::after {
-    width: 100%;
-  }
+
+
   
   /* Stories and News Section */
 .stories-news .card {

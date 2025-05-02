@@ -214,7 +214,7 @@ const products = [
     ,
     {
         id: 28,
-        name: "Cinnamon",
+        name: "Cinnamon Roll",
         price: 150,
         description: "Short description about coffee",
         image: "assets/p1.png"
@@ -222,7 +222,7 @@ const products = [
     ,
     {
         id: 29,
-        name: "CheeseCake",
+        name: "Cheesecake",
         price: 150,
         description: "Short description about coffee",
         image: "assets/p2.png"
@@ -302,7 +302,7 @@ const products = [
     ,
     {
         id: 39,
-        name: "Pan Seared Shrimp",
+        name: "Pan and Seared Shrimp",
         price: 150,
         description: "Short description about coffee",
         image: "assets/lm3.png"
@@ -310,16 +310,16 @@ const products = [
     ,
     {
         id: 40,
-        name: "Spinach and Shrimp Pasta",
-        price: 150,
+        name: "Chickpea Salad Sandwich",
+        price: 270,
         description: "Short description about coffee",
         image: "assets/lm4.png"
     }
     ,
     {
         id: 41,
-        name: "Chickpea Salad Sandwich",
-        price: 150,
+        name: "Spinach and Shrimp Pasta",
+        price: 250,
         description: "Short description about coffee",
         image: "assets/lm5.png"
     }
@@ -327,7 +327,7 @@ const products = [
     {
         id: 42,
         name: "Cheesy Chicken Nachos",
-        price: 150,
+        price: 250,
         description: "Short description about coffee",
         image: "assets/lm6.png"
     }
@@ -335,7 +335,7 @@ const products = [
     {
         id: 43,
         name: "Spaghetti",
-        price: 150,
+        price: 195,
         description: "Short description about coffee",
         image: "assets/lm7.png"
     }
@@ -343,7 +343,7 @@ const products = [
     {
         id: 44,
         name: "Lasagna",
-        price: 150,
+        price: 230,
         description: "Short description about coffee",
         image: "assets/lm8.png"
     }
@@ -351,7 +351,7 @@ const products = [
     {
         id: 45,
         name: "Grilled Shrimp Salad",
-        price: 150,
+        price: 220,
         description: "Short description about coffee",
         image: "assets/lm9.png"
     }
