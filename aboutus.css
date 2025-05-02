@@ -1,7 +1,8 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f5f5f5;
-  }
+    font-family: 'Gelasio', serif;
+    background-color: #c0c0c0;
+    color: #333;
+}
   
   .card {
     background-color: #c7b1a2;
@@ -225,18 +226,16 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 1rem;
-    object-fit: cover; /* Ensures the image covers the space properly */
+    object-fit: cover;
   }
-  
-  
- /* Vision and Mission Section */
+
 .vision-mission .card {
     background-color: #c7b1a2;
     border: none;
     border-radius: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
-    padding: 1.5rem; /* Larger padding for larger cards */
-    height: 100%; /* Allow content to fit inside the larger card */
+    padding: 1.5rem; 
+    height: 100%; 
   }
   
   .vision-mission .card-body {
@@ -245,24 +244,23 @@ body {
   
   .vision-mission .card-title {
     font-size: 3rem; /* Larger font size for title */
-    margin-bottom: 2rem; /* More spacing between title and text */
+    margin-bottom: 2rem; 
   }
   
   .vision-mission .card-text {
-    font-size: 1.5rem; /* Larger font size for text */
-    line-height: 1.5; /* Increased line height for readability */
+    font-size: 1.5rem; 
+    line-height: 1.5; 
     
     text-align: justify;
     color: #333;
   }
-  
-  /* Card hover effect */
+
   .vision-mission .card:hover {
-    transform: translateY(-8px); /* Increased hover movement */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* More intense shadow */
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   }
   
-  /* Adjust layout for responsiveness */
+
   @media (max-width: 767px) {
     .vision-mission .card {
       padding: 2.5rem; /* Slightly reduced padding for mobile */
