@@ -41,6 +41,13 @@ body {
 
 .sidebar p{
     text-indent: 0.1in;
+    font-family: "Gelasio";
+    font-weight: 400;
+}
+
+.s1{
+    font-family: "Gelasio";
+    font-weight: 400;
 }
 
 .container {
