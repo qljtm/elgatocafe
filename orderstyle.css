@@ -180,6 +180,7 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    padding-right: 8px;
 }
 
 /* Title and subtitle styles */
@@ -215,6 +216,7 @@ header {
     color: #444;
     flex-grow: 1; /* Ensures proper spacing between items */
     text-align: left; /* Ensures text is aligned to the left */
+    padding-left: 10px;
 }
 
 .cart-item-subtitle {
