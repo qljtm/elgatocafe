@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products - El Gato Café</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Gelasio', serif; /* Apply Gelasio font */
+        }
+
+        body {
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4a3b31;
+            color: #fff;
+            padding: 15px 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar {
+            background: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .container {
+            display: flex;
+            padding: 30px;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            border-right: 1px solid #ccc;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar a.active {
+            background: #4a90e2;
+            color: white;
+        }
+
+        .main {
+            flex: 1;
+            padding: 0 30px;
+        }
+
+        .product-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .summary-box {
+            background-color: #4a3b31;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .summary-box span {
+            display: block;
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f9f9f9;
+        }
+
+        .btn {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn.edit {
+            background-color: #888;
+        }
+
+        .btn.delete {
+            background-color: #d9534f;
+        }
+
+        /* Modal overlay */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        /* Edit Product Modal */
+        #editModal, #addModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #4a3b31;
+            padding: 30px;
+            border-radius: 8px;
+            width: 400px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        #editModal h3, #addModal h3 {
+            margin-bottom: 15px;
+        }
+
+        #editModal input, #addModal input, #editModal select, #addModal select {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #editModal button, #addModal button {
+            width: 48%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        #editModal .save, #addModal .save {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        #editModal .cancel, #addModal .cancel {
+            background-color: #d9534f;
+            color: white;
+        }
+
+        #addProductBtn {
+            background-color: #4a90e2;  /* Blue color */
+            color: white;                /* White text */
+            padding: 10px 20px;          /* Padding for size */
+            border: none;                /* Remove the border */
+            border-radius: 5px;          /* Rounded corners */
+            cursor: pointer;            /* Pointer cursor on hover */
+            font-size: 16px;             /* Adjust text size */
+            margin-bottom: 20px;         /* Space below the button */
+        }
+
+        #addProductBtn:hover {
+            background-color: #357ab7;   /* Darker blue on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <header>El Gato Café</header>
+
+    <div class="navbar">Admin Dashboard</div>
+
+    <div class="container">
+        <div class="sidebar">
+            <a href="admin.html">Dashboard</a>
+            <a href="product.html" class="active">Manage Products</a>
+            <a href="#">Manage Orders</a>
+            <a href="#">Manage Users</a>
+            <a href="#">Manage Vouchers</a>
+            <a href="#">Customer Feedback</a>
+        </div>
+
+        <div class="main">
+            <div class="product-title">Manage Products</div>
+
+            <div class="summary-box">
+                Total Products
+                <span id="totalProducts">1</span>
+            </div>
+
+            <button class="btn" id="addProductBtn">Add Product</button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product name</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="productTable">
+                    <tr>
+                        <td>Double Fudge Frappe</td>
+                        <td>100</td>
+                        <td>150</td>
+                        <td>Frappe</td>
+                        <td>
+                            <button class="btn edit">Edit</button>
+                            <button class="btn delete">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- Repeat rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Background Overlay -->
+    <div id="overlay"></div>
+
+    <!-- Edit Product Modal -->
+<div id="editModal">
+    <h3>Edit Product</h3>
+    <form id="editForm">
+        <label for="editName">Product Name:</label><br>
+        <input type="text" id="editName" required><br>
+        
+        <label for="editQty">Quantity:</label><br>
+        <input type="number" id="editQty" required><br>
+        
+        <label for="editPrice">Price:</label><br>
+        <input type="number" id="editPrice" required><br>
+        
+        <label for="editType">Type:</label><br>
+        <select id="editType" required>
+            <option value="Frappe">Frappe</option>
+<option value="Coffee">Coffee</option>
+<option value="Pastry">Pastry</option>
+<option value="Tea">Tea</option>
+<option value="Light Meals">Light Meals</option>
+<option value="Cold Brew">Cold Brew</option>
+        </select><br>
+
+        <button type="submit" class="btn save">Save Changes</button>
+        <button type="button" class="btn cancel" id="cancelEdit">Cancel</button>
+    </form>
+</div>
+
+    <!-- Add Product Modal -->
+    <div id="addModal">
+        <h3>Add New Product</h3>
+        <form id="addForm">
+            <label for="addName">Product Name:</label><br>
+            <input type="text" id="addName" required><br>
+            
+            <label for="addQty">Quantity:</label><br>
+            <input type="number" id="addQty" required><br>
+            
+            <label for="addPrice">Price:</label><br>
+            <input type="number" id="addPrice" required><br>
+            
+            <label for="addType">Type:</label><br>
+            <select id="addType" required>
+                <option value="Frappe">Frappe</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Pastry">Pastry</option>
+                <option value="Tea">Tea</option>
+                <option value="Light Meals">Light Meals</option>
+                <option value="Cold Brew">Cold Brew</option>
+            </select><br>
+
+            <button type="submit" class="btn save">Add Product</button>
+            <button type="button" class="btn cancel" id="cancelAdd">Cancel</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const table = document.querySelector('table');
+            const overlay = document.getElementById('overlay');
+            const editModal = document.getElementById('editModal');
+            const addModal = document.getElementById('addModal');
+            const cancelEdit = document.getElementById('cancelEdit');
+            const cancelAdd = document.getElementById('cancelAdd');
+            const editForm = document.getElementById('editForm');
+            const addForm = document.getElementById('addForm');
+            const totalProductsSpan = document.getElementById('totalProducts');
+            const productTable = document.getElementById('productTable');
+            const addProductBtn = document.getElementById('addProductBtn');
+    
+            let currentRow = null;
+    
+            // Update total products
+            function updateTotalProducts() {
+                const rows = productTable.querySelectorAll('tr');
+                totalProductsSpan.textContent = rows.length;
+            }
+    
+            // Open edit modal and overlay
+            table.addEventListener('click', function (e) {
+                if (e.target.classList.contains('edit')) {
+                    currentRow = e.target.closest('tr');
+                    const cells = currentRow.children;
+    
+                    document.getElementById('editName').value = cells[0].textContent;
+                    document.getElementById('editQty').value = cells[1].textContent;
+                    document.getElementById('editPrice').value = cells[2].textContent;
+                    document.getElementById('editType').value = cells[3].textContent;
+    
+                    overlay.style.display = 'block';
+                    editModal.style.display = 'block';
+                }
+    
+                if (e.target.classList.contains('delete')) {
+                    const row = e.target.closest('tr');
+                    const productName = row.children[0].textContent;
+                    if (confirm('Are you sure you want to delete "' + productName + '"?')) {
+                        row.remove();
+                        updateTotalProducts();
+                    }
+                }
+            });
+    
+            // Cancel Edit
+            cancelEdit.addEventListener('click', function () {
+                overlay.style.display = 'none';
+                editModal.style.display = 'none';
+            });
+    
+            // Edit Product Form Submit
+            editForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('editName').value;
+                const qty = document.getElementById('editQty').value;
+                const price = document.getElementById('editPrice').value;
+                const type = document.getElementById('editType').value;
+    
+                currentRow.children[0].textContent = name;
+                currentRow.children[1].textContent = qty;
+                currentRow.children[2].textContent = price;
+                currentRow.children[3].textContent = type;
+    
+                overlay.style.display = 'none';
+                editModal.style.display = 'none';
+            });
+    
+            // Add Product Button
+            addProductBtn.addEventListener('click', function () {
+                overlay.style.display = 'block';
+                addModal.style.display = 'block';
+            });
+    
+            // Cancel Add Product
+            cancelAdd.addEventListener('click', function () {
+                overlay.style.display = 'none';
+                addModal.style.display = 'none';
+            });
+    
+            // Add Product Form Submit
+            addForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('addName').value;
+                const qty = document.getElementById('addQty').value;
+                const price = document.getElementById('addPrice').value;
+                const type = document.getElementById('addType').value;
+    
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${name}</td>
+                    <td>${qty}</td>
+                    <td>${price}</td>
+                    <td>${type}</td>
+                    <td>
+                        <button class="btn edit">Edit</button>
+                        <button class="btn delete">Delete</button>
+                    </td>
+                `;
+    
+                productTable.appendChild(newRow);
+    
+                // Clear the form
+                addForm.reset();
+    
+                // Hide modal and overlay
+                overlay.style.display = 'none';
+                addModal.style.display = 'none';
+    
+                updateTotalProducts();
+            });
+    
+            // Initial update
+            updateTotalProducts();
+        });
+        
+    </script>
+    
+</body>
+</html>
+    </script>
+    
+</body>
+</html>
