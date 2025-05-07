@@ -163,6 +163,7 @@ header {
   width: 400px;
   max-height: 100vh;
   overflow-y: auto;
+  margin-left: 20px; /* Add this */
   scrollbar-width: none; /* Firefox */
   background-color: white;
   box-shadow: -2px 0 5px rgba(0,0,0,0.1);
