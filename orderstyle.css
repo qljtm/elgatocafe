@@ -243,6 +243,7 @@ header {
 /* Total section */
 .cart-total-section {
     margin-top: 10px;
+    padding-left: 10px;
 }
 
 .cart-total-row {
@@ -382,7 +383,7 @@ header {
     color: #ffcc00;
 }
 
-  .disabled {
+ .disabled {
     background-color: #ccc;
     cursor: default;
     border-color: #ccc;
