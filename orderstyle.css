@@ -159,24 +159,16 @@ header {
     object-fit: cover;
 }
 
-/* Adjusting the sidebar-cart to have a fixed height with overflow */
 .sidebar-cart {
-  width: 400px; /* Adjust width for better layout */
+  width: 400px;
   max-height: 100vh;
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
+  scrollbar-width: none; /* Firefox */
 }
 
 .sidebar-cart::-webkit-scrollbar {
-  width: 6px;
+  display: none; /* Chrome, Safari */
 }
-
-.sidebar-cart::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 10px;
-}
-
 
 /* Making the cart header smaller */
 .cart-header {
