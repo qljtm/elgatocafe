@@ -161,17 +161,22 @@ header {
 
 /* Adjusting the sidebar-cart to have a fixed height with overflow */
 .sidebar-cart {
-    width: 250px; /* Cart width */
-    background-color: white;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    height: 400px; /* Fixed height */
-    overflow-y: auto; /* Makes the cart scrollable when items overflow */
-    box-sizing: border-box;
-    border-radius: 17px;
+  width: 400px; /* Adjust width for better layout */
+  max-height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
 }
+
+.sidebar-cart::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-cart::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
 
 /* Making the cart header smaller */
 .cart-header {
