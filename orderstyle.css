@@ -382,3 +382,8 @@ header {
     color: #ffcc00;
 }
 
+  .disabled {
+    background-color: #ccc;
+    cursor: default;
+    border-color: #ccc;
+}
