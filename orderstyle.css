@@ -164,6 +164,10 @@ header {
   max-height: 100vh;
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  border-radius: 17px;
 }
 
 .sidebar-cart::-webkit-scrollbar {
