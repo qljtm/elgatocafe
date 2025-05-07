@@ -6,42 +6,48 @@
         padding: 0;
       }
 
-.navbar-brand{
-    font-family: "Gelasio";
-    font-weight: 550;
-    font-style: normal;
-    color:#0a0b0c;
+.navbar{
+    font-family: "Inria" !important;
 }
 
-.navbar-nav{
-    font-family: "Gelasio";
+.navbar-brand {
+    font-family: "Inria Serif", serif;
+    font-weight: 550;
+    font-style: normal;
+    color: #0a0b0c;
+}
+
+.navbar-brand:hover {
+    color: #000000;
+}
+
+.navbar-nav {
+    font-family: "Gelasio", serif;
     font-weight: 400;
     font-size: medium;
     font-style: normal;
-    color:#0a0b0c;
-}
-
-
-
-      .navbar-nav .nav-link {
-        position: relative;
-        font-weight: bold;
-      }
-
-      .navbar-nav .nav-link::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 3px;
-        left: 0;
-        bottom: 3px;
-        background-color: #d2691e;
-        transition: width 0.3s ease;
-      }
-
-      .navbar-nav .nav-link.active::after {
-        width: 100%;
-      }
+    color: #0a0b0c;
+  }
+  
+  .navbar-nav .nav-link {
+    position: relative;
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 3px;
+    background-color: #d2691e;
+    transition: width 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link.active::after {
+    width: 100%;
+  }
 
       .hero-image img {
         width: 100%;
