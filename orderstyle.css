@@ -160,8 +160,7 @@ header {
 }
 
 .sidebar-cart {
-  width: 400px;
-  padding: 20px; 
+  width: 400px; 
   max-height: 100vh;
   overflow-y: auto;
   margin-left: 20px; /* Add this */
