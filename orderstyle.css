@@ -180,8 +180,8 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 /* Title and subtitle styles */
@@ -194,8 +194,8 @@ header {
     font-size: 12px;
     color: #777;
     margin-top: 2px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 /* Cart item section styling */
@@ -206,8 +206,8 @@ header {
     margin-top: 10px;
     padding: 10px 0;  /* Adjusted padding for better alignment */
     border-bottom: 1px solid #eee;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .cart-item-title,
@@ -235,8 +235,8 @@ header {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .promo-input {
@@ -251,6 +251,8 @@ header {
 /* Total section */
 .cart-total-section {
     margin-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .cart-total-row {
@@ -258,6 +260,8 @@ header {
     justify-content: space-between;
     margin-bottom: 6px;
     font-size: 12px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 /* Emphasizing total row */
@@ -283,8 +287,8 @@ header {
     margin-top: 10px;
     transition: background-color 0.3s;
     font-size: 14px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .checkout-button:hover {
