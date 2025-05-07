@@ -4,39 +4,190 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>El Gato Café</title>
-    <link rel="stylesheet" href="navbar.css" />
+    <script type="module" src="database.js"></script>
+    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="orderstyle.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
 </head>
 <body>
     <!-- Navbar -->
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary">  
-        <div class="container-fluid">
-          <a class="navbar-brand" href="home.html" style="font-size: 2rem;">El Gato Café</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.html" style="font-size: 2rem;">El Gato Café</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link " style="color:#0a0b0c; font-weight: bold;" href="home.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link " style="color:#0a0b0c; font-weight: bold;" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link active" style="color:#0a0b0c; font-weight: bold;" href="order.html">Order</a></li>
+          </ul>
+    
+          <div class="d-flex align-items-center me-3">
+            <a href="order.html" class="text-dark">
+              <i class="fa fa-shopping-cart fa-lg"></i>
+            </a>
       
-          <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="home.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="menu.html">Menu</a></li>
-              <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="about.html">About Us</a></li>
-              <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="contact.html">Contact</a></li>
-              <li class="nav-item"><a class="nav-link active" style="color:#0a0b0c; font-weight: bold;" href="order.html">Order</a></li>
-            </ul>
-      
-            <div class="d-flex align-items-center me-3">
-              <a href="#" class="text-dark">
-                <i class="fa fa-shopping-cart fa-lg"></i>
-              </a>
+            <span id="greetingMessage" class="mx-3 fw-bold text-dark d-none"></span>
+          
+            <div class="d-flex align-items-center me-3" id="loginDiv">
+              <i class="bi bi-person-circle" style="font-size: 25px; cursor: pointer; margin-left: 20px; margin-right: 20px;" data-toggle="modal" data-target="#loginModal"></i>
             </div>
+            <button id="logoutBtn" class="btn btn-danger d-none">Logout</button>
+          
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered custom-modal" role="document">
+        <div class="modal-content p-4" style="border-radius: 1.5rem;">
+          
+          <!-- Login Form (Initial state) -->
+          <div id="loginFormContent">
+            <div class="text-center mb-4">
+              <img src="assets/person.png" alt="User Icon" class="rounded-circle mb-3" width="50">
+              <h4 class="font-weight-bold">Welcome Back <span>👋</span></h4>
+              <p class="text-muted mb-0">"Come Back to Your Favorite Place—Log In and Enjoy!"</p>
+            </div>
+    
+            <form>
+              <div class="form-group">
+                <label class="font-weight-bold" for="username">Email</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter your Email">
+              </div>
+    
+              <div class="form-group">
+                <label class="font-weight-bold" for="password">Password</label>
+                <div class="input-group">
+                  <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                  <div class="input-group-append">
+                    <span class="input-group-text bg-white"><i class="fa fa-eye"></i></span>
+                  </div>
+                </div>
+                <div id="loginMessage" style="color: red;"></div>
+              </div>
+    
+              <button type="button" onclick="openForgotPasswordModal()">Forgot Password?</button>
+    
+              <button type="submit" class="btn btn-primary btn-block" style="border-radius: 10px;">Login</button>
+    
+              <div class="text-center mt-3">
+                <span class="text-muted">Don’t have an account?</span>
+                <a href="#" class="text-primary font-weight-bold" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Register here</a>
+              </div>
+            </form>
+          </div>
+    
+          <!-- User Info (After login) -->
+          <div id="userInfoContent" class="d-none">
+            <div class="text-center mb-4">
+              <img src="assets/person.png" alt="User Icon" class="rounded-circle mb-3" width="50">
+              <h4 class="font-weight-bold">Welcome, <span id="userFirstName"></span> <span id="userLastName"></span></h4>
+            </div>
+    
+            <div class="text-center">
+              <button class="btn btn-danger" onclick="logout()">Log Out</button>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </div>    
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="registerEmail">Email address</label>
+            <input type="email" class="form-control" id="registerEmail" placeholder="Enter email" required>
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Password</label>
+            <input type="password" class="form-control" id="registerPassword" placeholder="Enter password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" class="form-control" id="dateOfBirth" placeholder="Select your date of birth">
+          </div>
+          <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" class="form-control" id="contactNumber" placeholder="">
+          </div>
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+            <label class="form-check-label" for="agreeTerms">
+              I agree to the <a href="#">Terms & Conditions</a>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 1.5rem; border: 1px solid #ddd;">
+      <div class="modal-header" style="border-bottom: none;">
+        <h5 class="modal-title text-center w-100" id="forgotPasswordModalLabel" style="font-weight: bold; color: #007bff;">Reset Your Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="forgotPasswordForm">
+          <div class="form-group">
+            <label for="email" style="font-weight: 500; color: #333;">Enter your email address</label>
+            <input type="email" class="form-control" id="email" name="email" required placeholder="Your email address" style="border-radius: 10px;">
+          </div>
+          <!-- Clickable Text -->
+          <div class="text-center mt-3">
+            <a href="#" id="resetPasswordLink" style="font-size: 16px; color: #007bff; text-decoration: none; font-weight: bold;">Send Password Reset Link</a>
+          </div>
+        </form>
+        <p id="message" class="text-center mt-3" style="display: none; font-size: 14px; color: green;"></p>
+      </div>
+    </div>
+  </div>
+</div>
     <div class="main-container">
         <div class="content-area">
             <div class="hero">
@@ -47,8 +198,8 @@
             </div>
 
             <div class="order-options">
-                <button class="order-button active">Delivery</button>
-                <button class="order-button">Pickup</button>
+                <button class="order-button active" id="delivery">Delivery</button>
+                <button class="order-button" id="pickup">Pickup</button>
             </div>
 
             <div class="search-bar">
@@ -87,58 +238,63 @@
                     <span id="subtotal">₱150</span>
                 </div>
                 <div class="cart-total-row">
-                    <span>Delivery Fee</span>
-                    <span>₱40</span>
-                </div>
+                  <span>Delivery Fee</span>
+                  <span id="deliveryFee">₱40</span>
+              </div>
+              
                 <div class="cart-total-row total-row">
                     <span>Total</span>
                     <span id="total" class="total-price">₱190</span>
                 </div>
             </div>
 
-            <button class="checkout-button">Checkout</button>
+            <button id="checkoutButton" class="checkout-button">Checkout</button>
+            <p id="checkoutMessage" class="text-danger d-none mt-2" style="font-size: 0.9rem;"></p>
+            
         </div>
     </div>
     <div id="cartItems"></div>
 
+       <!-- Footer -->
 <div class="footer-dark">
-  <footer>
+    <footer>
       <div class="container">
-          <div class="row">
-              <div class="col-sm-6 col-md-3 item">
-                  <h3>Find Us</h3>
-                  <p style="font-size: smaller;"><i class="fa fa-location-arrow"></i> 938 Aurora Blvd, Cubao,<br>
-                                                              Quezon City, 1109 Metro Manila</p>
-                  <p style="font-size: smaller;"><i class="fa fa-phone"></i>  +91-9999878398  </p>
-                  <p style="font-size: smaller;"><i class="fa fa-envelope"></i> elgatocafe@gmail.com  </p>
-              </div>
-              <div class="col-sm-6 col-md-3 item">
-                  <h3>Quick Links</h3>
-                  <ul>
-                      <li><a href="home.html">Home</a></li>
-                      <li><a href="menu.html">Menu</a></li>
-                      <li><a href="about.html">About Us</a></li>
-                      <li><a href="contact.html">Contact</a></li>
-                      <li><a href="#">Order</a></li>
-                  </ul>
-              </div>
-              <div class="col-md-6 item text">
-                  <h3 style="font-family: Inria Serif, serif" ><b>El Gato Café</b></h3>
-                  <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus.
-                     Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
-              </div>
-              <div class="col item social">
-                <a href="https://www.facebook.com/" target="_blank" class="text-white me-3"><i class="bi bi-facebook"></i></a>
-                <a href="https://x.com/?lang=en" target="_blank" class="text-white me-3"><i class="bi bi-twitter-x"></i></a>
-                <a href="https://instagram.com" target="_blank" class="text-white me-3"><i class="bi bi-instagram"></i></a>
-                <a href="https://linkedin.com" target="_blank" class="text-white"><i class="bi bi-linkedin"></i></a> 
-              </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-3 item">
+            <h3>Find Us</h3>
+            <p style="font-size: smaller;"><i class="fa fa-location-arrow"></i> 938 Aurora Blvd, Cubao,<br>
+              Quezon City, 1109 Metro Manila</p>
+            <p style="font-size: smaller;"><i class="fa fa-phone"></i> +91-9999878398</p>
+            <p style="font-size: smaller;"><i class="fa fa-envelope"></i> elgatocafe@gmail.com</p>
           </div>
-          <p class="copyright">El Gato Café © 2025</p>
+          <div class="col-sm-6 col-md-3 item">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="menu.html">Menu</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="#">Order</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 item text">
+            <h3 style="font-family: 'Gelasio', serif;"><b>El Gato Café</b></h3>
+            <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus
+              elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+            <p class="copyright">El Gato Café © 2025</p>
+          </div>
+          <div class="col item social">
+            <a href="https://www.facebook.com/" target="_blank" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com/?lang=en" target="_blank" class="text-white me-3"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://instagram.com" target="_blank" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="text-white"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
       </div>
-  </footer>
-</div>
+    </footer>
 
     <script src="javaorder.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
