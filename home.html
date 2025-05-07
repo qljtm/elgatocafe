@@ -120,13 +120,15 @@
                 <div class="input-group">
                   <input type="password" class="form-control" id="password" placeholder="Enter your password">
                   <div class="input-group-append">
-                    <span class="input-group-text bg-white"><i class="fa fa-eye"></i></span>
+                    <span class="input-group-text bg-white" onclick="togglePasswordVisibility()" style="cursor: pointer;">
+                    <i class="fa fa-eye" id="togglePasswordIcon"></i>
+                    </span>
                   </div>
                 </div>
                 <div id="loginMessage" style="color: red;"></div>
               </div>
     
-              <button type="button" onclick="openForgotPasswordModal()">Forgot Password?</button>
+              <a href="#" onclick="openForgotPasswordModal()" class="d-block mb-3 text-right">Forgot Password?</a>
     
               <button type="submit" class="btn btn-primary btn-block" style="border-radius: 10px;">Login</button>
     
@@ -309,7 +311,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-      // Intersection Observer for fade-in effect
       const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -319,15 +320,14 @@
     }
   });
 }, {
-  threshold: 0.3 // Less aggressive trigger
+  threshold: 0.3 
 });
-      // Apply fade-in to images and carousel slides
+
       const fadeElements = document.querySelectorAll('.fade-in');
       fadeElements.forEach(element => {
         observer.observe(element);
       });
 
-      // Carousel slide functionality
       let currentSlide = 0;
       const slides = document.querySelectorAll('.carousel-slide');
 
@@ -338,9 +338,23 @@
         });
       }
 
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password');
+    const icon = document.getElementById('togglePasswordIcon');
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    } else {
+      passwordInput.type = 'password';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    }
+  }
+      
       setInterval(() => {
   nextSlide();
-}, 5000); // change every 5 seconds
+}, 5000);
     </script>
   </body>
   </html>
