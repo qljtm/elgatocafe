@@ -190,3 +190,22 @@ function showRegisterMessage(message, type = 'danger') {
     msgDiv.className = `alert alert-${type}`;
     msgDiv.classList.remove('d-none');
 }
+
+//orders :((
+
+document.addEventListener('DOMContentLoaded', () => {
+    const checkoutButton = document.getElementById('checkoutButton');
+    const checkoutMessage = document.getElementById('checkoutMessage');
+
+    const loggedInUser = localStorage.getItem('loggedInUser');
+
+    if (!loggedInUser) {
+        checkoutButton.disabled = true;
+        checkoutButton.classList.add('disabled'); // Optional: Add styling
+        checkoutMessage.textContent = 'You must log in first in order to check out.';
+        checkoutMessage.classList.remove('d-none');
+    } else {
+        checkoutButton.disabled = false;
+        checkoutMessage.classList.add('d-none');
+    }
+});
