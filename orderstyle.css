@@ -170,6 +170,7 @@ header {
     height: 400px; /* Fixed height */
     overflow-y: auto; /* Makes the cart scrollable when items overflow */
     box-sizing: border-box;
+    border-radius: 17px;
 }
 
 /* Making the cart header smaller */
