@@ -1,186 +1,196 @@
   <!DOCTYPE html>
   <html lang="en">
-    
-  <meta charset="UTF-8" />
+   <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>El Gato Café</title>
 
-    <!-- Internal CSS -->
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-
-
-      /* Basic styling for body and elements */
-      body {
-        font-family: 'Gelasio';
-        background-color: #c0c0c0;
-        color: #333;
-        margin: 0;
-        padding: 0;
-      }
-
-.navbar-brand{
-    font-family: "Gelasio";
-    font-weight: 550;
-    font-style: normal;
-    color:#0a0b0c;
-}
-
-.navbar-nav{
-    font-family: "Gelasio";
-    font-weight: 400;
-    font-size: medium;
-    font-style: normal;
-    color:#0a0b0c;
-}
-
-
-
-      .navbar-nav .nav-link {
-        position: relative;
-        font-weight: bold;
-      }
-
-      .navbar-nav .nav-link::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 3px;
-        left: 0;
-        bottom: 3px;
-        background-color: #d2691e;
-        transition: width 0.3s ease;
-      }
-
-      .navbar-nav .nav-link.active::after {
-        width: 100%;
-      }
-
-      .hero-image img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      .carousel-container {
-  max-width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-
-
-      .carousel-slide {
-        display: none;
-        padding: 3rem 2rem;
-        background-image: url('assets/home-pic3.png');
-        background-size: cover;
-        background-position: center;
-        text-align: center;
-        color: white;
-      }
-
-      .carousel-slide.active {
-        display: block;
-      }
-
-      /* Footer Styling */
-      .footer-dark {
-        padding: 40px 0;
-        color: #f0f9ff;
-        background-color: #4b3a2f;
-      }
-
-      .footer-dark h3 {
-        margin-top: 0;
-        margin-bottom: 12px;
-        font-family: 'Gelasio', serif;
-        font-weight: bold;
-        font-size: 16px;
-      }
-
-      .footer-dark ul {
-        padding: 0;
-        list-style: none;
-        line-height: 1.8;
-        font-size: 14px;
-        margin-bottom: 0;
-        font-family: 'Gelasio', serif;
-      }
-
-      .footer-dark ul a {
-        color: inherit;
-        text-decoration: none;
-        opacity: 0.6;
-      }
-
-      .footer-dark ul a:hover {
-        opacity: 0.8;
-      }
-
-      .footer-dark .item.text {
-        margin-bottom: 36px;
-      }
-
-      .footer-dark .item.social {
-        text-align: center;
-      }
-
-      .footer-dark .item.social > a {
-        font-size: 20px;
-        padding: 0 12px;
-        color: #ffffff;
-      }
-
-      .footer-dark .item.social > a:hover {
-        color: #ffcc00;
-      }
-
-      /* Fade-in Animation */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(50px); /* Slightly moved down initially */
-        transition: opacity 1s ease-out, transform 1s ease-out;
-      }
-
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0); /* Reset to original position */
-      }
-    </style>
+    <script type="module" src="database.js"></script>
+    <link rel="stylesheet" href="home.css">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
   </head>
 
   <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">  
       <div class="container-fluid">
         <a class="navbar-brand" href="home.html" style="font-size: 2rem;">El Gato Café</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
+    
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item"><a class="nav-link active" style="color:#0a0b0c; font-weight: bold;" href="home.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link " style="color:#0a0b0c; font-weight: bold;" href="menu.html">Menu</a></li>
             <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="about.html">About Us</a></li>
             <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="contact.html">Contact</a></li>
             <li class="nav-item"><a class="nav-link" style="color:#0a0b0c; font-weight: bold;" href="order.html">Order</a></li>
           </ul>
-
+    
           <div class="d-flex align-items-center me-3">
             <a href="order.html" class="text-dark">
               <i class="fa fa-shopping-cart fa-lg"></i>
             </a>
+      
+            <span id="greetingMessage" class="mx-3 fw-bold text-dark d-none"></span>
+          
+            <div class="d-flex align-items-center me-3" id="loginDiv">
+              <i class="bi bi-person-circle" style="font-size: 25px; cursor: pointer; margin-left: 20px; margin-right: 20px;" data-toggle="modal" data-target="#loginModal"></i>
+            </div>
+            <button id="logoutBtn" class="btn btn-danger d-none">Logout</button>
+          
           </div>
         </div>
       </div>
     </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered custom-modal" role="document">
+        <div class="modal-content p-4" style="border-radius: 1.5rem;">
+          
+          <!-- Login Form (Initial state) -->
+          <div id="loginFormContent">
+            <div class="text-center mb-4">
+              <img src="assets/person.png" alt="User Icon" class="rounded-circle mb-3" width="50">
+              <h4 class="font-weight-bold">Welcome Back <span>👋</span></h4>
+              <p class="text-muted mb-0">"Come Back to Your Favorite Place—Log In and Enjoy!"</p>
+            </div>
+    
+            <form>
+              <div class="form-group">
+                <label class="font-weight-bold" for="username">Email</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter your Email">
+              </div>
+    
+              <div class="form-group">
+                <label class="font-weight-bold" for="password">Password</label>
+                <div class="input-group">
+                  <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                  <div class="input-group-append">
+                    <span class="input-group-text bg-white"><i class="fa fa-eye"></i></span>
+                  </div>
+                </div>
+                <div id="loginMessage" style="color: red;"></div>
+              </div>
+    
+              <button type="button" onclick="openForgotPasswordModal()">Forgot Password?</button>
+    
+              <button type="submit" class="btn btn-primary btn-block" style="border-radius: 10px;">Login</button>
+    
+              <div class="text-center mt-3">
+                <span class="text-muted">Don’t have an account?</span>
+                <a href="#" class="text-primary font-weight-bold" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Register here</a>
+              </div>
+            </form>
+          </div>
+    
+          <!-- User Info (After login) -->
+          <div id="userInfoContent" class="d-none">
+            <div class="text-center mb-4">
+              <img src="assets/person.png" alt="User Icon" class="rounded-circle mb-3" width="50">
+              <h4 class="font-weight-bold">Welcome, <span id="userFirstName"></span> <span id="userLastName"></span></h4>
+            </div>
+    
+            <div class="text-center">
+              <button class="btn btn-danger" onclick="logout()">Log Out</button>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </div>    
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="registerEmail">Email address</label>
+            <input type="email" class="form-control" id="registerEmail" placeholder="Enter email" required>
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Password</label>
+            <input type="password" class="form-control" id="registerPassword" placeholder="Enter password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" class="form-control" id="dateOfBirth" placeholder="Select your date of birth">
+          </div>
+          <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" class="form-control" id="contactNumber" placeholder="">
+          </div>
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+            <label class="form-check-label" for="agreeTerms">
+              I agree to the <a href="#">Terms & Conditions</a>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 1.5rem; border: 1px solid #ddd;">
+      <div class="modal-header" style="border-bottom: none;">
+        <h5 class="modal-title text-center w-100" id="forgotPasswordModalLabel" style="font-weight: bold; color: #007bff;">Reset Your Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="forgotPasswordForm">
+          <div class="form-group">
+            <label for="email" style="font-weight: 500; color: #333;">Enter your email address</label>
+            <input type="email" class="form-control" id="email" name="email" required placeholder="Your email address" style="border-radius: 10px;">
+          </div>
+          <!-- Clickable Text -->
+          <div class="text-center mt-3">
+            <a href="#" id="resetPasswordLink" style="font-size: 16px; color: #007bff; text-decoration: none; font-weight: bold;">Send Password Reset Link</a>
+          </div>
+        </form>
+        <p id="message" class="text-center mt-3" style="display: none; font-size: 14px; color: green;"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <section class="hero-image">
       <img src="assets/home-pic1.png" alt="Cafe Vibe 2" class="img-fluid w-100 fade-in" />
@@ -203,8 +213,7 @@
         <p class="lead">“Such a lovely vibe. I brought my cat and she felt just as welcome as I did!”</p>
         <h5>— Angela L.</h5>
       </div>
-
-      
+     
     </section>
 
     <section class="hero-image">
