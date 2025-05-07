@@ -214,7 +214,7 @@ const products = [
     ,
     {
         id: 28,
-        name: "Cinnamon Roll",
+        name: "Cinnamon",
         price: 150,
         description: "Short description about coffee",
         image: "assets/p1.png"
@@ -222,7 +222,7 @@ const products = [
     ,
     {
         id: 29,
-        name: "Cheesecake",
+        name: "CheeseCake",
         price: 150,
         description: "Short description about coffee",
         image: "assets/p2.png"
@@ -302,7 +302,7 @@ const products = [
     ,
     {
         id: 39,
-        name: "Pan and Seared Shrimp",
+        name: "Pan Seared Shrimp",
         price: 150,
         description: "Short description about coffee",
         image: "assets/lm3.png"
@@ -310,16 +310,16 @@ const products = [
     ,
     {
         id: 40,
-        name: "Chickpea Salad Sandwich",
-        price: 270,
+        name: "Spinach and Shrimp Pasta",
+        price: 150,
         description: "Short description about coffee",
         image: "assets/lm4.png"
     }
     ,
     {
         id: 41,
-        name: "Spinach and Shrimp Pasta",
-        price: 250,
+        name: "Chickpea Salad Sandwich",
+        price: 150,
         description: "Short description about coffee",
         image: "assets/lm5.png"
     }
@@ -327,7 +327,7 @@ const products = [
     {
         id: 42,
         name: "Cheesy Chicken Nachos",
-        price: 250,
+        price: 150,
         description: "Short description about coffee",
         image: "assets/lm6.png"
     }
@@ -335,7 +335,7 @@ const products = [
     {
         id: 43,
         name: "Spaghetti",
-        price: 195,
+        price: 150,
         description: "Short description about coffee",
         image: "assets/lm7.png"
     }
@@ -343,7 +343,7 @@ const products = [
     {
         id: 44,
         name: "Lasagna",
-        price: 230,
+        price: 150,
         description: "Short description about coffee",
         image: "assets/lm8.png"
     }
@@ -351,7 +351,7 @@ const products = [
     {
         id: 45,
         name: "Grilled Shrimp Salad",
-        price: 220,
+        price: 150,
         description: "Short description about coffee",
         image: "assets/lm9.png"
     }
@@ -359,43 +359,64 @@ const products = [
     
 ];
 
+// Variables for the buttons and delivery fee
+const deliveryButton = document.getElementById('delivery');
+const pickupButton = document.getElementById('pickup');
+const deliveryFeeElement = document.getElementById('deliveryFee');
+
+
+// Add event listeners to handle delivery/pickup selection
+deliveryButton.addEventListener('click', () => {
+    // Set the delivery fee and update the total
+    deliveryFeeElement.textContent = `₱40`;
+    deliveryFee = 40;
+    updateCart(); // Recalculate total
+    deliveryButton.classList.add('active');
+    pickupButton.classList.remove('active');
+});
+
+pickupButton.addEventListener('click', () => {
+    // Set the pickup fee and update the total (assumed ₱0)
+    deliveryFeeElement.textContent = `₱0`;
+    deliveryFee = 0; // No delivery fee for pickup
+    updateCart(); // Recalculate total
+    pickupButton.classList.add('active');
+    deliveryButton.classList.remove('active');
+});
+
+// Proceed with the rest of your existing code...
 
 let cart = [];
 
 
 function updateCart() {
-    
     if (cart.length === 0) {
-        
         cartItemName.textContent = "";
         subtotalElement.textContent = "₱0";
         totalElement.textContent = "₱0";
-        
-        
         renderCartItems();
         return;
     }
-    
-    
+
     if (cart.length > 0) {
         cartItemName.textContent = cart[0].name;
     } else {
         cartItemName.textContent = "";
     }
-    
-    
+
     let subtotal = 0;
     cart.forEach(item => {
         subtotal += item.price * item.quantity;
     });
-    
-    
+
+    // Update subtotal
     subtotalElement.textContent = `₱${subtotal}`;
+    // Update total, including delivery fee
     totalElement.textContent = `₱${subtotal + deliveryFee}`;
-    
-    
+
     renderCartItems();
 }
+
 
 function renderCartItems() {
     
@@ -475,7 +496,7 @@ const subtotalElement = document.getElementById('subtotal');
 const totalElement = document.getElementById('total');
 const searchInput = document.getElementById('searchInput');
 const orderButtons = document.querySelectorAll('.order-button');
-const deliveryFee = 40; 
+let deliveryFee = 40;    
 const modalContainer = document.createElement('div');
 modalContainer.id = 'productModal';
 document.body.appendChild(modalContainer);
@@ -1047,3 +1068,15 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
     initialize();
 }
 
+const checkoutBtn = document.getElementById('checkoutButton');
+
+checkoutBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    alert("Thank you for your order!");
+    cart = [];
+    updateCart();
+});
