@@ -1,0 +1,285 @@
+     body {
+        font-family: 'Gelasio';
+        background-color: #c0c0c0;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+.navbar-brand{
+    font-family: "Gelasio";
+    font-weight: 550;
+    font-style: normal;
+    color:#0a0b0c;
+}
+
+.navbar-nav{
+    font-family: "Gelasio";
+    font-weight: 400;
+    font-size: medium;
+    font-style: normal;
+    color:#0a0b0c;
+}
+
+
+
+      .navbar-nav .nav-link {
+        position: relative;
+        font-weight: bold;
+      }
+
+      .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        left: 0;
+        bottom: 3px;
+        background-color: #d2691e;
+        transition: width 0.3s ease;
+      }
+
+      .navbar-nav .nav-link.active::after {
+        width: 100%;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .carousel-container {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+      .carousel-slide {
+        display: none;
+        padding: 3rem 2rem;
+        background-image: url('assets/home-pic3.png');
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        color: white;
+        height: 300px;
+        
+        
+      }
+
+      .carousel-slide.active {
+        display: block;
+      }
+
+      /* Footer Styling */
+      .footer-dark {
+        padding: 40px 0;
+        color: #f0f9ff;
+        background-color: #4b3a2f;
+      }
+
+      .footer-dark h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-family: 'Gelasio', serif;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .footer-dark ul {
+        padding: 0;
+        list-style: none;
+        line-height: 1.8;
+        font-size: 14px;
+        margin-bottom: 0;
+        font-family: 'Gelasio', serif;
+      }
+
+      .footer-dark ul a {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.6;
+      }
+
+      .footer-dark ul a:hover {
+        opacity: 0.8;
+      }
+
+      .footer-dark .item.text {
+        margin-bottom: 36px;
+      }
+
+      .footer-dark .item.social {
+        text-align: center;
+      }
+
+      .footer-dark .item.social > a {
+        font-size: 20px;
+        padding: 0 12px;
+        color: #ffffff;
+      }
+
+      .footer-dark .item.social > a:hover {
+        color: #ffcc00;
+      }
+
+      /* Fade-in Animation */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(50px); /* Slightly moved down initially */
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0); /* Reset to original position */
+      }
+      .modal-dialog {
+    max-width: 600px; /* You can adjust this value to change the width of the modal */
+  }
+  .form-control {
+    max-width: 100%; /* Ensures the form fields do not exceed modal width */
+  }
+  .modal-body {
+    padding: 20px; /* Adds padding inside the modal */
+  }
+input.form-control {
+  border-radius: 10px;
+}
+
+.input-group-text {
+  border-left: none;
+  background-color: transparent;
+}
+
+input:focus,
+button:focus {
+  box-shadow: none !important;
+}
+
+/* Modal Container Styling */
+.modal-content {
+  background-color: #fff;
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Form Inputs */
+.form-control {
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #d2691e;
+  box-shadow: 0 0 5px rgba(210, 105, 30, 0.5);
+}
+
+/* Button Styles */
+button.btn {
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-primary {
+  background-color: #d2691e;
+  color: #fff;
+}
+
+button.btn-primary:hover {
+  background-color: #e0823f;
+}
+
+button.btn-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+button.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Modal Header */
+.modal-header {
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  padding: 20px;
+  text-align: center;
+}
+
+.modal-header img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.modal-header h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 30px;
+}
+
+/* Forgot Password and Register Links */
+.text-center a {
+  color: #d2691e;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.text-center a:hover {
+  color: #e0823f;
+}
+
+/* Input Group Icon */
+.input-group-text {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #555;
+  cursor: pointer;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .modal-content {
+    border-radius: 1rem;
+  }
+  .modal-header h4 {
+    font-size: 1.3rem;
+  }
+}
+
+
+.disabled {
+  pointer-events: none; 
+  cursor: default;     
+}
