@@ -291,7 +291,28 @@
       </div>
     </footer>
   </div>
-  <script src="script.js"></script>
+  <script src="script.js">
+     function saveMessage(event) {
+    event.preventDefault();
+    const name = document.getElementById("contactName").value;
+    const email = document.getElementById("contactEmail").value;
+    const message = document.getElementById("contactMessage").value;
+
+    const feedback = {
+      name,
+      email,
+      message,
+      date: new Date().toLocaleString()
+    };
+
+    let allFeedback = JSON.parse(localStorage.getItem("customerFeedback")) || [];
+    allFeedback.push(feedback);
+    localStorage.setItem("customerFeedback", JSON.stringify(allFeedback));
+
+    alert("Message submitted successfully!");
+    event.target.reset();
+  }
+  </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
