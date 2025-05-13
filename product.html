@@ -188,20 +188,46 @@
             background-color: #357ab7;   /* Darker blue on hover */
         }
 
+
+        .navbar {
+    background: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c9302c;
+}
     </style>
 </head>
 <body>
     <header>El Gato Café</header>
 
-    <div class="navbar">Admin Dashboard</div>
+
+    
 
     <div class="container">
         <div class="sidebar">
             <a href="admin.html">Dashboard</a>
             <a href="product.html" class="active">Manage Products</a>
-            <a href="#">Manage Orders</a>
-            <a href="#">Manage Users</a>
-            <a href="#">Manage Vouchers</a>
+            <a href="manageorder.html">Manage Orders</a>
+            <a href="users.html">Manage Users</a>
+            <a href="voucher.html">Manage Vouchers</a>
             <a href="#">Customer Feedback</a>
         </div>
 
