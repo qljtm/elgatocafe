@@ -255,6 +255,26 @@
     </div>
     <div id="cartItems"></div>
 
+<div class="modal fade" id="receiptModal" tabindex="-1" role="dialog" aria-labelledby="receiptModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 1rem;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="receiptModalLabel">Order Receipt</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="receiptContent">
+        <!-- This will be filled dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="printReceipt()">Print</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
        <!-- Footer -->
 <div class="footer-dark">
     <footer>
