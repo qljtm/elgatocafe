@@ -1080,3 +1080,46 @@ checkoutBtn.addEventListener('click', () => {
     cart = [];
     updateCart();
 });
+
+document.getElementById("checkoutButton").addEventListener("click", function () {
+    const items = document.querySelectorAll("#cartItems .cart-item");
+    const subtotal = document.getElementById("subtotal")?.textContent || "₱0";
+    const deliveryFee = document.getElementById("deliveryFee")?.textContent || "₱0";
+    const total = document.getElementById("total")?.textContent || "₱0";
+
+    if (items.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
+
+    let receiptHTML = "<h6 class='mb-3'>Thank you for your order!</h6><hr>";
+    receiptHTML += "<ul class='list-unstyled'>";
+
+    items.forEach(item => {
+        const name = item.querySelector(".item-name")?.textContent || "Item";
+        const qty = item.querySelector(".item-qty")?.textContent || "x1";
+        const price = item.querySelector(".item-price")?.textContent || "₱0";
+        receiptHTML += `<li class="mb-1">${qty} ${name} — <strong>${price}</strong></li>`;
+    });
+
+    receiptHTML += "</ul><hr>";
+    receiptHTML += `<p>Subtotal: <strong>${subtotal}</strong></p>`;
+    receiptHTML += `<p>Delivery Fee: <strong>${deliveryFee}</strong></p>`;
+    receiptHTML += `<p>Total: <strong>${total}</strong></p>`;
+
+    document.getElementById("receiptContent").innerHTML = receiptHTML;
+
+    $('#receiptModal').modal('show');
+});
+
+function printReceipt() {
+    const printContents = document.getElementById("receiptContent").innerHTML;
+    const win = window.open('', '', 'height=600,width=800');
+    win.document.write('<html><head><title>El Gato Café Receipt</title></head><body>');
+    win.document.write('<h2>El Gato Café</h2><hr>');
+    win.document.write(printContents);
+    win.document.write('</body></html>');
+    win.document.close();
+    win.print();
+}
+
