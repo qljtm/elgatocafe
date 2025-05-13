@@ -1123,3 +1123,4 @@ function printReceipt() {
     win.print();
 }
 
+
